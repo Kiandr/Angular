@@ -16,6 +16,7 @@ namespace helloAngular.Controllers
 
             ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
             ViewData["Runtime"] = isMono ? "Mono" : ".NET";
+			ViewData["Author"] = "Kian";
 
             return View();
         }
