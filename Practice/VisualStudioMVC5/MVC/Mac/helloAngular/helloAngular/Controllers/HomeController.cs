@@ -20,5 +20,8 @@ namespace helloAngular.Controllers
 
             return View();
         }
+		public ActionResult HelloAngular(){
+			return View();
+		}
     }
 }

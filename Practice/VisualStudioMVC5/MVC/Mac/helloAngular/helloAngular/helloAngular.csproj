@@ -95,6 +95,31 @@
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+    <Content Include="src\index.html" />
+    <Content Include="src\karma.conf.js" />
+    <Content Include="src\styles.css" />
+    <Content Include="src\app\app.component.css" />
+    <Content Include="src\app\app.component.html" />
+    <Content Include="Views\Home\HelloAngular.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\browserslist" />
+    <None Include="src\favicon.ico" />
+    <None Include="src\main.ts" />
+    <None Include="src\polyfills.ts" />
+    <None Include="src\test.ts" />
+    <None Include="src\tsconfig.app.json" />
+    <None Include="src\tsconfig.spec.json" />
+    <None Include="src\tslint.json" />
+    <None Include="src\app\app.component.spec.ts" />
+    <None Include="src\app\app.component.ts" />
+    <None Include="src\app\app.module.ts" />
+    <None Include="src\assets\.gitkeep" />
+    <None Include="src\environments\environment.prod.ts" />
+    <None Include="src\environments\environment.ts" />
+    <None Include="angular.json" />
+    <None Include="package.json" />
+    <None Include="tsconfig.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
