@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule }      from '@angular/core';
 import { FormsModule,ReactiveFormsModule }      from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './services/auth.service';
+import { HttpClientService } from './services/http-client.service';
+
 
 @NgModule({
   imports:[ 
@@ -11,9 +14,10 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers:    [  ],
-  declarations: [LoginComponent],
-  exports:      [ ],
+  providers:    [ AuthService,
+    HttpClientService ],
+  declarations: [ LoginComponent],
+  exports:      [],
   bootstrap:    []
 })
 export class CoreModule { }

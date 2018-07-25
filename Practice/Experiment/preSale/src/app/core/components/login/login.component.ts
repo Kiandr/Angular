@@ -15,7 +15,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     console.log("Login ngOnIti was created!");
+    //this.authService.AppLogin();
+  }
+  onClickMe() {
     this.authService.AppLogin();
+    console.log('You are my hero!');
   }
 
 }
