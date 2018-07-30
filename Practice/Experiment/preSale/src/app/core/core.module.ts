@@ -5,6 +5,9 @@ import { FormsModule,ReactiveFormsModule }      from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
 import { HttpClientService } from './services/http-client.service';
+import { HTTP_INTERCEPTORS, HttpClient, HttpHeaders } from '@angular/common/http';
+import { HeaderInterceptorService } from 'src/app/core/services/header-interceptor.service';
+
 
 
 @NgModule({
@@ -14,8 +17,18 @@ import { HttpClientService } from './services/http-client.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers:    [ AuthService,
-    HttpClientService ],
+  providers:[
+    AuthService,
+    HttpClientService,
+    AuthService,
+    HttpClient,
+    //HttpHeaders,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptorService,
+      multi: true,
+    }
+   ],
   declarations: [ LoginComponent],
   exports:      [],
   bootstrap:    []
