@@ -245,6 +245,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="src\app\app.component.css" />
     <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\core\components\login\login.component.css" />
+    <Content Include="src\app\core\components\login\login.component.html" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
     <Content Include="src\karma.conf.js" />
@@ -307,9 +309,21 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\app-routing-module\app-routing-module.module.spec.ts" />
+    <TypeScriptCompile Include="src\app\app-routing-module\app-routing-module.module.ts" />
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\core\components\login\login.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\core\components\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\core\core.module.spec.ts" />
+    <TypeScriptCompile Include="src\app\core\core.module.ts" />
+    <TypeScriptCompile Include="src\app\core\services\auth.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\core\services\auth.service.ts" />
+    <TypeScriptCompile Include="src\app\core\services\header-interceptor.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\core\services\header-interceptor.service.ts" />
+    <TypeScriptCompile Include="src\app\core\services\http-client.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\core\services\http-client.service.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
     <TypeScriptCompile Include="src\main.ts" />
