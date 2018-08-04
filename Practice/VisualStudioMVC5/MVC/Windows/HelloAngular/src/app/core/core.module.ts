@@ -1,48 +1,49 @@
-import {BrowserModule} from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { NgModule }      from '@angular/core';
-import { FormsModule,ReactiveFormsModule }      from '@angular/forms';
-import { LoginComponent } from './components/login/login.component';
-import { AuthService } from './services/auth.service';
-import { HttpClientService } from './services/http-client.service';
-import { HTTP_INTERCEPTORS, HttpClient, HttpHeaders } from '@angular/common/http';
-import { HeaderInterceptorService } from 'src/app/core/services/header-interceptor.service';
-
+/// <reference path="services/header-interceptor.service.ts" />
+import {BrowserModule} from "@angular/platform-browser";
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { LoginComponent } from "./components/login/login.component";
+import { AuthService } from "./services/auth.service";
+import { HttpClientService } from "./services/http-client.service";
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientXsrfModule } from "@angular/common/http";
+import { HttpModule } from "@angular/http";
+import { HeaderInterceptorService} from "./services/header-interceptor.service";
+//import Headerinterceptorservice = require("./services/header-interceptor.service");
+//import HeaderInterceptorService = HeaderInterceptorService1;
+//import Headerinterceptorservice = require("./services/header-interceptor.service");
+//import HeaderInterceptorService1 = Headerinterceptorservice.HeaderInterceptorService;
 
 
 @NgModule({
-  imports:[ 
-    BrowserModule, 
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  providers:[
-    AuthService,
-    HttpClientService,
-    AuthService,
-    HttpClient,
-    //HttpHeaders,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HeaderInterceptorService,
-      multi: true,
-    }
-   ],
-  declarations: [ LoginComponent],
-  exports:      [],
-  bootstrap:    []
+    imports: [
+        BrowserModule,
+        CommonModule,
+        FormsModule,
+        HttpClientXsrfModule.withOptions({
+            cookieName: "My-Cookie",
+            headerName: "myheader"
+        }),
+        ReactiveFormsModule,
+    ],
+    providers: [
+        HttpModule,
+        HttpClient,
+        AuthService,
+        HttpClientService,
+        AuthService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HeaderInterceptorService,
+            multi: true,
+        }
+    ],
+    declarations: [LoginComponent],
+    exports: [],
+    bootstrap: []
 })
-export class CoreModule { }
-
-
-
-
-
-
-
-
-
+export class CoreModule {
+}
 
 
 /*

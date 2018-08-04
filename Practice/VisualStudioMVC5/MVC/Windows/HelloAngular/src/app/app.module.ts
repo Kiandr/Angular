@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModuleModule} from './app-routing-module/app-routing-module.module';
 import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
-
+import { APP_BASE_HREF } from '@angular/common';
 
 
 @NgModule({
@@ -20,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/fo
     BrowserModule,
     CoreModule
   ],
-  providers: [],
+    providers: [{ provide: APP_BASE_HREF, useValue: 'Home/Contact' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

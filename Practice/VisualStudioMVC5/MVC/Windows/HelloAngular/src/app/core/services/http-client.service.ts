@@ -1,53 +1,61 @@
-import { Injectable } from '@angular/core';
-import {Http, Headers, RequestOptions,Response, ResponseOptions} from '@angular/http';
-
-import { HTTP_INTERCEPTORS, HttpClient, HttpHeaders } from '@angular/common/http';
-import { EmptyError } from '../../../../node_modules/rxjs';
-
+import { Injectable } from "@angular/core";
+import { ResponseOptions } from "@angular/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import * as $ from "jquery";
 @Injectable({
-  providedIn: 'root'
+    providedIn: "root"
 })
-
 export class HttpClientService {
 
-  constructor(private http: HttpClient) {
-    console.log("HttpClient was cunstrocted"+http);
-   }
-  private returnedResponse ;
+    constructor(private http: HttpClient) {
+        console.log(`HttpClient was cunstrocted${http}`);
+    }
 
-   public getHttp() {
-    
-    const head = new HttpHeaders();
-    head.append('Access-Control-Allow-Headers', 'Content-Type');
-    head.append('Access-Control-Allow-Methods', 'GET');
-    head.append('Access-Control-Allow-Origin', '*');
-    
-    // const url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=Santa+Cruz&key=MY_KEY";
-    // let url = 'https://enlivenfinancial.azurewebsites.net/';
-    // let testHeader = new Headers({ 'Access-Control-Allow-Origin': '*','Content-Type': 'application/json' });
-    // let options = new RequestOptions({ headers: testHeader });
+    private returnedResponse;
+    private httpOptions = {
+        headers: new HttpHeaders({
+            'X-XSRF-Token': $('input[name=__RequestVerificationToken]').val(),
+            'Access-Control-Allow-Methods': "POST",
+            'Access-Control-Allow-Origin': "*",
+            'Access-Control-Allow-Headers': "X-CSRF-TOKEN"
 
-        // this.http.get(url)// return 
-    // this.http.get(url)
-    //     .map(r => this.dataHere = r.json())
-    //     .catch((error:any) => Observable.throw(error.json().error));
-    
-      //  this.http.get('http://jsonplaceholder.typicode.com/posts',{headers:head}).subscribe(
-    this.http.get('https://enlivenfinancial.azurewebsites.net/',{headers:head}).subscribe(
-     (response:ResponseOptions )=> {
-     
-     debugger;
-     console.log(response);
-    },
-    (responseHeader)=>{
-      debugger;
-      console.log(responseHeader.error);
-      console.log(responseHeader.status);
-      console.log(responseHeader.statusText);
-      console.log(responseHeader.url);
+
+        })
+    };
+
+    httpPostTest() {
+        this.http.post("http://192.168.0.17" +
+                "/api/core/test",
+                "",
+                this.httpOptions)
+            .subscribe(res => {
+                    debugger;
+                    console.log("HTTP Post Response:"+res);
+                },
+                (err) => {
+                    console.log("HTTP Post Error"+err);
+                });
+    }
+
+    httpGetTest() {
+
+
+        console.log(this.httpOptions);
+        this.http.get("http://192.168.0.17"+"/api/core/home", this.httpOptions).subscribe(
+            (response: ResponseOptions) => {
+
+
+                console.log(response);
+            },
+            (responseHeader) => {
+                debugger;
+                console.log(responseHeader.error);
+                console.log(responseHeader.status);
+                console.log(responseHeader.statusText);
+                console.log(responseHeader.url);
+
+            }
+        );
 
     }
-  );
-    
-  }
 }

@@ -9,8 +9,13 @@ export class AuthService {
 constructor(private http: HttpClientService) { 
     console.log("Auth Service was created!");
   }
-  public AppLogin():void{
-    this.http.getHttp();
+    public httpGetTest():void{
+        this.http.httpGetTest();
     console.log("App login was called!");
-  }
+    }
+
+    public httpPostTest(): void {
+        this.http.httpPostTest();
+        console.log("App login was called!");
+    }
 }
