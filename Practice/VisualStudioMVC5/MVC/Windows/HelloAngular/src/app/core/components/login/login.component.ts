@@ -1,21 +1,27 @@
 import { Component, OnInit } from "@angular/core";
+import {Location} from "@angular/common";
 import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
 import * as $ from "jquery";
 @Component({
     selector: "app-login",
     templateUrl: "./login.component.html",
-    styleUrls: ["./login.component.css"]
+    styleUrls: ["./login.component.css"],
+    providers: [Location]
 })
+
 export class LoginComponent implements OnInit {
-    private antiForgeryToken :any;
-    constructor(private router: Router, private authService: AuthService) {
+    private antiForgeryToken: any;
+
+    constructor(private router: Router, private authService: AuthService, private location: Location) {
         this.antiForgeryToken= $("input[name=__RequestVerificationToken]").val();
-        console.log("Login Constructor was created!");
+        this.location.replaceState("/");
+        console.log("Login Constructor was hrocreated!");
     }
 
     ngOnInit() {
         console.log("Login ngOnIti was created!");
+        
     }
 
     httpGetTest() {

@@ -8,17 +8,17 @@ import {BrowserModule} from '@angular/platform-browser';
       CommonModule, 
       BrowserModule,
         RouterModule.forRoot([
-            { path: '*', redirectTo:'login', pathMatch:'full'},
-            //{ path:'login', component:LoginComponent}
-            {
-                path: ':folder/:id',
-                component: LoginComponent,
-                children: [
-                    {
-                        path: "contacts/:name",
-                        redirectTo:"/contact/:name"
-                    }]
-            }
+            //{ path: '/', redirectTo:'/login', pathMatch:'full'},
+            { path:'Home/Contact', component:LoginComponent}
+            //{
+            //    path: ':folder/:id',
+            //    component: LoginComponent,
+            //    children: [
+            //        {
+            //            path: "contacts/:name",
+            //            redirectTo:"/contact/:name"
+            //        }]
+            //}
         ]),
       RouterModule.forChild([
           ])
