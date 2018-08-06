@@ -49,8 +49,15 @@ namespace HelloAngular.Controllers
                 return BadRequest(ModelState);
             }
 
-            //var token = this.Request;
-            return Ok();
+            var body = new
+            {
+                items = new[]
+                {
+                    new {name = "command", index = "X", optional = "0"},
+                    new {name = "command", index = "X", optional = "0"}
+                }
+            };
+            return Ok(body);
         }
 
         #endregion
