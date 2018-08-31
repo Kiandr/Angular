@@ -329,3 +329,4 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /interviews/moneris/package-lock.json
+/interviews/moneris/toDoList/package.json
