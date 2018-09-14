@@ -1,0 +1,10 @@
+{
+    "loginUrl": "api/login",
+    "textfile": "assets/textfile.txt",
+  
+      "fruit": "Apple",
+      "size": "Large",
+      "color": "Red"
+  
+  }
+  
